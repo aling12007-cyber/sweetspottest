@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Spot | Sam Pearson - Sports Business Strategy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0b0f19',
+                        card: '#131b2e',
+                        border: '#1e293b',
+                        gold: '#f59e0b',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans JP', 'Noto Sans SC', sans-serif;
+            background-color: #0b0f19;
+            color: #f1f5f9;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #f59e0b 0%, #ec4899 50%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-bg {
+            background: linear-gradient(to bottom, rgba(11, 15, 25, 0.75), rgba(11, 15, 25, 0.95)), 
+                        url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+        }
+        .stadium-bg {
+            background: linear-gradient(to right, rgba(19, 27, 46, 0.92), rgba(19, 27, 46, 0.85)), 
+                        url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+        }
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            border-color: rgba(245, 158, 11, 0.4);
+            box-shadow: 0 20px 40px -15px rgba(245, 158, 11, 0.15);
+        }
+        [data-lang] {
+            display: none;
+        }
+        .lang-en [data-lang="en"],
+        .lang-ja [data-lang="ja"],
+        .lang-zh [data-lang="zh"] {
+            display: inline;
+        }
+        .lang-en div[data-lang="en"],
+        .lang-ja div[data-lang="ja"],
+        .lang-zh div[data-lang="zh"],
+        .lang-en p[data-lang="en"],
+        .lang-ja p[data-lang="ja"],
+        .lang-zh p[data-lang="zh"],
+        .lang-en h1[data-lang="en"],
+        .lang-ja h1[data-lang="ja"],
+        .lang-zh h1[data-lang="zh"],
+        .lang-en h2[data-lang="en"],
+        .lang-ja h2[data-lang="ja"],
+        .lang-zh h2[data-lang="zh"],
+        .lang-en h3[data-lang="en"],
+        .lang-ja h3[data-lang="ja"],
+        .lang-zh h3[data-lang="zh"],
+        .lang-en span[data-lang="en"],
+        .lang-ja span[data-lang="ja"],
+        .lang-zh span[data-lang="zh"],
+        .lang-en li[data-lang="en"],
+        .lang-ja li[data-lang="ja"],
+        .lang-zh li[data-lang="zh"] {
+            display: block;
+        }
+        .lang-en ul[data-lang="en"],
+        .lang-ja ul[data-lang="ja"],
+        .lang-zh ul[data-lang="zh"] {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-dark text-slate-100 antialiased selection:bg-gold selection:text-black lang-en" id="app-body">
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-dark/85 backdrop-blur-md border-b border-border/60">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#home" class="text-xl font-black tracking-wider text-white uppercase flex items-center gap-3">
+                <img src="logo.jpg" alt="Sweet Spot Logo" class="w-10 h-10 rounded-full object-cover border border-gold/40 shadow-md">
+                <span class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-gold animate-pulse"></span>
+                    SWEET <span class="gold-gradient">SPOT</span>
+                </span>
+            </a>
+            
+            <nav class="hidden xl:flex items-center space-x-6 text-xs font-semibold tracking-wider text-slate-300">
+                <a href="#home" class="hover:text-gold transition-colors"><span data-lang="en">HOME</span><span data-lang="ja">ホーム</span><span data-lang="zh">首页</span></a>
+                <a href="#points" class="hover:text-gold transition-colors"><span data-lang="en">DIFFERENCE</span><span data-lang="ja">特征</span><span data-lang="zh">核心优势</span></a>
+                <a href="#founder" class="hover:text-gold transition-colors"><span data-lang="en">FOUNDER</span><span data-lang="ja">创设者</span><span data-lang="zh">创办人</span></a>
+                <a href="#influence" class="hover:text-gold transition-colors"><span data-lang="en">NETWORK</span><span data-lang="ja">ネットワーク</span><span data-lang="zh">合作网络</span></a>
+                <a href="#capabilities" class="hover:text-gold transition-colors"><span data-lang="en">CAPABILITIES</span><span data-lang="ja">実绩</span><span data-lang="zh">专业能力</span></a>
+                <a href="#offers" class="hover:text-gold transition-colors"><span data-lang="en">SOLUTIONS</span><span data-lang="ja">ソリューション</span><span data-lang="zh">客制方案</span></a>
+                <a href="#contact" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-500 to-pink-500 text-white font-bold hover:opacity-90 transition-all shadow-lg shadow-amber-500/20"><span data-lang="en">CONTACT</span><span data-lang="ja">お问い合わせ</span><span data-lang="zh">联络我们</span></a>
+            </nav>
+
+            <!-- Language Switcher -->
+            <div class="flex items-center space-x-3">
+                <div class="flex border border-border rounded-full overflow-hidden text-xs bg-card p-0.5">
+                    <button onclick="setLanguage('en')" id="btn-en" class="px-3 py-1.5 rounded-full bg-gold text-black font-bold transition-all">EN</button>
+                    <button onclick="setLanguage('ja')" id="btn-ja" class="px-3 py-1.5 rounded-full text-slate-300 hover:text-white transition-all">日</button>
+                    <button onclick="setLanguage('zh')" id="btn-zh" class="px-3 py-1.5 rounded-full text-slate-300 hover:text-white transition-all">中</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. HOME -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-28 pb-20 hero-bg">
+        <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent"></div>
+        <div class="max-w-6xl mx-auto px-6 py-16 text-center relative z-10">
+            
+            <!-- Logo Brand Showcase -->
+            <div class="mb-10 inline-block relative group">
+                <div class="absolute -inset-3 bg-gradient-to-r from-amber-400 via-pink-500 to-cyan-500 rounded-3xl blur-lg opacity-50 group-hover:opacity-85 transition duration-500"></div>
+                <div class="relative w-48 h-48 md:w-64 md:h-64 mx-auto rounded-3xl overflow-hidden border-2 border-gold/60 shadow-2xl bg-dark">
+                    <img src="logo.jpg" alt="Sweet Spot Logo" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                </div>
+            </div>
+
+            <!-- Company Name Design -->
+            <h1 class="text-5xl md:text-8xl font-black tracking-wider text-white uppercase mb-6 drop-shadow-2xl">
+                SWEET <span class="gold-gradient">SPOT</span>
+            </h1>
+
+            <span class="inline-block px-6 py-2.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-gold text-xs md:text-sm uppercase tracking-[0.3em] font-extrabold mb-8 backdrop-blur-md shadow-lg">
+                <span data-lang="en">Sports Business Strategy & Consulting</span>
+                <span data-lang="ja">スポーツビジネス戦略・コンサルティング</span>
+                <span data-lang="zh">运动商业策略与咨询</span>
+            </span>
+
+            <p class="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto font-light leading-relaxed mb-6 drop-shadow">
+                <span data-lang="en">Powered by a network of sports and entertainment professionals with a <br class="hidden md:inline"><span class="text-gold font-semibold">strong commitment and connection to Japan.</span></span>
+                <span data-lang="ja">スポーツ・エンタメ业界の専门家ネットワークが、<br class="hidden md:inline"><span class="text-gold font-semibold">日本への强いコミットメントと绊で结ばれています。</span></span>
+                <span data-lang="zh">结合对日本充满高度承诺与深厚连结的<br class="hidden md:inline"><span class="text-gold font-semibold">体育与娱乐专业人士网络。</span></span>
+            </p>
+
+            <p class="text-sm md:text-base text-slate-300 max-w-2xl mx-auto font-light leading-relaxed mb-12">
+                <span data-lang="en">Created to facilitate innovation and growth opportunities within Japan’s sports & entertainment industry, focused on raising business connectivity and capability.</span>
+                <span data-lang="ja">日本のスポーツ＆エンターテインメント业界におけるイノベーションと成长机会の创出を目指し、ビジネスの接続性と専门性を高めます。</span>
+                <span data-lang="zh">旨在推动日本体育与娱乐产业的创新与成长机会，致力于提升体育商业的串联度与专业执行力。</span>
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+                <a href="#points" class="w-full sm:w-auto px-9 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-pink-500 text-white font-bold hover:scale-105 transition-all text-sm tracking-wider shadow-xl shadow-amber-500/25">
+                    <span data-lang="en">Explore Our Difference</span><span data-lang="ja">特征を见る</span><span data-lang="zh">了解核心优势</span>
+                </a>
+                <a href="#contact" class="w-full sm:w-auto px-9 py-4 rounded-xl bg-card/90 border border-border hover:border-gold/50 text-white font-semibold transition-all text-sm tracking-wider hover:bg-slate-800 backdrop-blur-md">
+                    <span data-lang="en">Get in Touch</span><span data-lang="ja">お问い合わせ</span><span data-lang="zh">联络我们</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. POINTS OF DIFFERENCE (Now First) -->
+    <section id="points" class="py-28 stadium-bg border-t border-border">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-2xl mb-16">
+                <span class="text-gold text-xs uppercase tracking-[0.25em] font-extrabold mb-3 block">
+                    <span data-lang="en">Points of Difference</span>
+                    <span data-lang="ja">私たちの强み</span>
+                    <span data-lang="zh">核心优势</span>
+                </span>
+                <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight">
+                    <span data-lang="en">What Sets Us Apart</span><span data-lang="ja">选ばれる理由</span><span data-lang="zh">与众不同的特质</span>
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-card/90 backdrop-blur-md border border-border rounded-3xl p-8 md:p-10 card-hover relative overflow-hidden">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-black font-black text-lg mb-6 shadow-lg shadow-amber-500/20">01</div>
+                    <h3 class="text-xl font-bold text-white mb-3">
+                        <span data-lang="en">Authentic sports passion</span><span data-lang="ja">本物のスポーツへの情热</span><span data-lang="zh">对运动的真实热情</span>
+                    </h3>
+                    <p class="text-slate-300 font-light leading-relaxed text-sm">
+                        <span data-lang="en">Driven by a genuine, deep-rooted love and respect for athletics, fueling every campaign and partnership we manage.</span>
+                        <span data-lang="ja">竞技に対する纯粋で深い爱とリスペクトを持ち、手がけるすべてのキャンペーンやパートナーシップを推进します。</span>
+                        <span data-lang="zh">源自对体育运动的真挚热爱与尊重，驱动我们所管理的每一项企划与合作。</span>
+                    </p>
+                </div>
+                <div class="bg-card/90 backdrop-blur-md border border-border rounded-3xl p-8 md:p-10 card-hover relative overflow-hidden">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white font-black text-lg mb-6 shadow-lg shadow-pink-500/20">02</div>
+                    <h3 class="text-xl font-bold text-white mb-3">
+                        <span data-lang="en">Exciting and innovative unlocks</span><span data-lang="ja">エキサイティングで革新的なアプローチ</span><span data-lang="zh">令人兴奋且创新的突破</span>
+                    </h3>
+                    <p class="text-slate-300 font-light leading-relaxed text-sm">
+                        <span data-lang="en">Unlocking creative opportunities and forward-thinking strategies that break conventional industry barriers.</span>
+                        <span data-lang="ja">従来の业界の壁を打ち破る、クリエイティブな机会と先进的な戦略を切り拓きます。</span>
+                        <span data-lang="zh">打破传统产业壁垒，开创充满创意的商业机会与前瞻性策略。</span>
+                    </p>
+                </div>
+                <div class="bg-card/90 backdrop-blur-md border border-border rounded-3xl p-8 md:p-10 card-hover relative overflow-hidden">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-black font-black text-lg mb-6 shadow-lg shadow-cyan-500/20">03</div>
+                    <h3 class="text-xl font-bold text-white mb-3">
+                        <span data-lang="en">Respect for technique and craft of high performance</span><span data-lang="ja">ハイパフォーマンスにおける技术とクラフトへの敬意</span><span data-lang="zh">致敬高水平表现的技术与工艺</span>
+                    </h3>
+                    <p class="text-slate-300 font-light leading-relaxed text-sm">
+                        <span data-lang="en">Deep appreciation for the technique and craft of high performance, honoring athletes and creators alike.</span>
+                        <span data-lang="ja">ハイパフォーマンスにおける技术とクラフトに対する深い理解と、アスリートやクリエイターへの敬意を大切にします。</span>
+                        <span data-lang="zh">对顶尖表现的技术与工艺抱持高度欣赏，向所有卓越运动员与创作者致敬。</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. INTRODUCING THE FOUNDER (Now Second) -->
+    <section id="founder" class="py-28 relative overflow-hidden bg-dark">
+        <div class="absolute -right-32 top-1/2 -translate-y-1/2 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                <!-- 左侧：照片与精致外框设计 -->
+                <div class="lg:col-span-5">
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-amber-500 to-pink-500 rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
+                        <div class="relative rounded-3xl overflow-hidden border border-border/80 bg-card shadow-2xl">
+                            <img src="founder.jpg" alt="Sam L Pearson with Trophy" class="w-full h-auto object-cover transform group-hover:scale-105 transition duration-700">
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7">
+                    <span class="text-gold text-xs uppercase tracking-[0.25em] font-extrabold mb-3 block">
+                        <span data-lang="en">Introducing the Founder</span>
+                        <span data-lang="ja">创设者</span>
+                        <span data-lang="zh">创办人介绍</span>
+                    </span>
+                    <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight mb-6">
+                        Sam L Pearson
+                    </h2>
+                    <p class="text-slate-300 leading-relaxed font-light mb-5 text-base">
+                        <span data-lang="en">Sam is an award-winning team leader with 15+ years of success in sports PR/ marketing, fan community building, and sponsorship activation across the APAC region.</span>
+                        <span data-lang="ja">SamはAPAC地域におけるスポーツPR/マーケティング、ファンコミュニティ构筑、スポンサーシップ活性化において15年以上の実绩を持つ、受赏歴のあるチームリーダーです。</span>
+                        <span data-lang="zh">Sam 是一位屡获殊荣的团队领导者，在亚太区拥有超过 15 年的成功经验，专精于体育公关营销、球迷社群建立及赞助激活。</span>
+                    </p>
+                    <p class="text-slate-300 leading-relaxed font-light text-base mb-6">
+                        <span data-lang="en">He led AIG's sports marketing and communications in Tokyo from 2018-2025. Managed partnerships with New Zealand Rugby, Major League Baseball, and LPGA golfers.</span>
+                        <span data-lang="ja">2018年から2025年まで东京でAIGのスポーツマーケティングおよび広报を统括。ニュージーランドラグビー、MLB、LPGAゴルファーとのパートナーシップを管理しました。</span>
+                        <span data-lang="zh">他于 2018 至 2025 年间在东京领导 AIG 的体育营销与传播工作，并管理新西兰橄榄球、美国职棒大联盟（MLB）及 LPGA 高尔夫球星的合作伙伴关系。</span>
+                    </p>
+                    <div class="p-4 bg-card/60 border border-border/80 rounded-2xl inline-block">
+                        <span class="text-gold font-bold text-sm">
+                            <span data-lang="en">Sam is fluent in Japanese (and Kiwi English!).</span>
+                            <span data-lang="ja">Samは日本语（およびキウイ・イングリッシュ）に堪能です。</span>
+                            <span data-lang="zh">Sam 精通日语（以及地道的新西兰英语！）。</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. EXPERIENCE -->
+    <section id="experience" class="py-28 border-t border-border bg-slate-950">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="max-w-2xl mb-16">
+                <span class="text-gold text-xs uppercase tracking-[0.25em] font-extrabold mb-3 block">EXPERIENCE</span>
+                <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight">
+                    <span data-lang="en">Professional Career Milestones</span><span data-lang="ja">主要な职歴と実绩</span><span data-lang="zh">职业生涯核心经历</span>
+                </h2>
+            </div>
+            <div class="space-y-10 border-l-2 border-amber-500/30 pl-6 md:pl-8 ml-2">
+                
+                <div class="relative group">
+                    <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-3.5 h-3.5 bg-amber-500 rounded-full border-4 border-slate-950 group-hover:scale-125 transition-transform shadow-md shadow-amber-500/50"></div>
+                    <span class="text-xs font-bold text-amber-400 tracking-widest uppercase mb-1 block">2026.04 – <span data-lang="en">Present</span><span data-lang="ja">现在</span><span data-lang="zh">至今</span></span>
+                    <h3 class="text-xl font-bold text-white mt-1">Sweet Spot — <span class="text-gold"><span data-lang="en">Founder</span><span data-lang="ja">创设者</span><span data-lang="zh">创始人</span></span></h3>
+                    <p class="text-slate-300 font-light text-xs md:text-sm mt-2.5 bg-card/60 p-4 rounded-2xl border border-border/60">
+                        <span data-lang="en">Providing high-level facilitation, strategic business advisory, and cross-border commercial development for brands, rights holders, and investors across Japan's sports and entertainment industry.</span>
+                        <span data-lang="ja">日本のスポーツ・エンターテインメント业界のブランド、権利ホルダー、投资家に向けて、ハイレベルなファシリテーション、戦略的ビジネスアドバイザリー、クロスボーダー商业开発を提供。</span>
+                        <span data-lang="zh">为日本体育与娱乐产业的品牌、权利持有者及投资者提供高阶促进、策略商业顾问及跨境商务开发服务。</span>
+                    </p>
+                </div>
+
+                <div class="relative group">
+                    <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-3.5 h-3.5 bg-slate-700 rounded-full border-4 border-slate-950 group-hover:bg-amber-500 transition-colors"></div>
+                    <span class="text-xs font-bold text-slate-400 tracking-widest uppercase mb-1 block">2025.09 – 2026.03</span>
+                    <h3 class="text-xl font-bold text-white mt-1">Octagon — <span data-lang="en">General Manager</span><span data-lang="ja">ゼネラルマネージャー</span><span data-lang="zh">总经理</span></h3>
+                    <p class="text-slate-300 font-light text-xs md:text-sm mt-2.5 bg-card/60 p-4 rounded-2xl border border-border/60">
+                        <span data-lang="en">Overseeing agency operations, creating exceptional client value through creative activation, and guiding strategic development for major international sports accounts.</span>
+                        <span data-lang="ja">エージェンシーの运営を统括し、クリエイティブなアクティベーションを通じて比类なきクライアント価値を创出し、主要な国际スポーツアカウントの戦略的発展を主导。</span>
+                        <span data-lang="zh">督导机构日常营运，透过创意激活方案为客户创造卓越价值，并引领大型国际体育客户的策略发展。</span>
+                    </p>
+                </div>
+
+                <div class="relative group">
+                    <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-3.5 h-3.5 bg-slate-700 rounded-full border-4 border-slate-950 group-hover:bg-amber-500 transition-colors"></div>
+                    <span class="text-xs font-bold text-slate-400 tracking-widest uppercase mb-1 block">2018.01 – 2025.06</span>
+                    <h3 class="text-xl font-bold text-white mt-1">AIG — <span data-lang="en">Head of Sports Marketing</span><span data-lang="ja">スポーツマーケティング责任者</span><span data-lang="zh">体育行销主管</span></h3>
+                    <p class="text-slate-300 font-light text-xs md:text-sm mt-2.5 bg-card/60 p-4 rounded-2xl border border-border/60">
+                        <span data-lang="en">Responsible for leveraging sponsorship assets to maximize commercial impact, spearheading iconic multinational campaigns including the AIG "Tackle the Risk x All Blacks" global partnership.</span>
+                        <span data-lang="ja">スポンサーシップ资产を戦略的に活用して商业的影响力を最大化。AIG「Tackle the Risk x All Blacks」グローバルパートナーシップをはじめとする象征的な多国籍キャンペーンを主导。</span>
+                        <span data-lang="zh">负责全面运用赞助资产以极大化商业影响力，并主导如 AIG“Tackle the Risk x All Blacks”全球伙伴关系等标竿性跨国行销战役。</span>
+                    </p>
+                </div>
+
+                <div class="relative group">
+                    <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-3.5 h-3.5 bg-slate-700 rounded-full border-4 border-slate-950 group-hover:bg-amber-500 transition-colors"></div>
+                    <span class="text-xs font-bold text-slate-400 tracking-widest uppercase mb-1 block">2016.01 – 2017.12</span>
+                    <h3 class="text-xl font-bold text-white mt-1">CSM Sport & Entertainment — <span data-lang="en">Director of Business Development, Japan</span><span data-lang="ja">日本事业开発ディレクター</span><span data-lang="zh">日本商务开发总监</span></h3>
+                    <p class="text-slate-300 font-light text-xs md:text-sm mt-2.5 bg-card/60 p-4 rounded-2xl border border-border/60">
+                        <span data-lang="en">Driving aggressive new business development for CSM across the Japanese market and representing elite All Blacks players in commercial endorsements and activities.</span>
+                        <span data-lang="ja">日本市场におけるCSMの新规事业开拓を强力に推进し、オールブラッククス（ニュージーランド代表）选手の商业活动やエンドースメントを代理。</span>
+                        <span data-lang="zh">全力推动 CSM 在日本市场的全新业务拓展，并代表地表最强全黑队（All Blacks）球员处理商业代言及相关商务活动。</span>
+                    </p>
+                </div>
+
+                <div class="relative group">
+                    <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-3.5 h-3.5 bg-slate-700 rounded-full border-4 border-slate-950 group-hover:bg-amber-500 transition-colors"></div>
+                    <span class="text-xs font-bold text-slate-400 tracking-widest uppercase mb-1 block">2014.05 – 2015.07</span>
+                    <h3 class="text-xl font-bold text-white mt-1">New Zealand Football — <span data-lang="en">2015 FIFA U-20 World Cup Regional Sales & Marketing Manager</span><span data-lang="ja">2015 FIFA U-20ワールドカップ 地域営业・マーケティングマネージャー</span><span data-lang="zh">2015 FIFA U-20 世界杯区域销售与行销经理</span></h3>
+                    <p class="text-slate-300 font-light text-xs md:text-sm mt-2.5 bg-card/60 p-4 rounded-2xl border border-border/60">
+                        <span data-lang="en">Responsible for regional marketing execution, maximizing PR and fan engagement, building high-level stakeholder relationships, and driving commercial ticket sales.</span>
+                        <span data-lang="ja">地域マーケティングの実行、PRとファンエンゲージメントの最大化、主要ステークホルダーとの强固な关系构筑、および商业的チケット贩売の推进を统括。</span>
+                        <span data-lang="zh">负责区域行销执行、极大化公关与球迷参与度、建立高阶利害关系人网络，并全力推动赛事门票销售与商业变现。</span>
+                    </p>
+                </div>
+
+                <div class="relative group">
+                    <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-3.5 h-3.5 bg-slate-700 rounded-full border-4 border-slate-950 group-hover:bg-amber-500 transition-colors"></div>
+                    <span class="text-xs font-bold text-slate-400 tracking-widest uppercase mb-1 block">2011.02 – 2014.05</span>
+                    <h3 class="text-xl font-bold text-white mt-1">WTA — <span data-lang="en">APAC Marketing Director / Senior Sponsorship Manager</span><span data-lang="ja">APACマーケティングディレクター / シニアスポンサーシップマネージャー</span><span data-lang="zh">WTA 亚太区行销总监 / 资深赞助经理</span></h3>
+                    <p class="text-slate-300 font-light text-xs md:text-sm mt-2.5 bg-card/60 p-4 rounded-2xl border border-border/60">
+                        <span data-lang="en">Led APAC sponsor services, contract renewals, and global brand activation for major partners including Sony Mobile and Wilson.</span>
+                        <span data-lang="ja">APACのスポンサーサービス、契约更新、およびSony MobileやWilsonなどの主要パートナーに対するグローバルブランド活性化戦略を主导。</span>
+                        <span data-lang="zh">领导亚太区赞助商服务、合约续约评估，并为 Sony Mobile、Wilson 等重量级全球伙伴规划与执行品牌激活策略。</span>
+                    </p>
+                </div>
+
+                <div class="relative group">
+                    <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-3.5 h-3.5 bg-slate-700 rounded-full border-4 border-slate-950 group-hover:bg-amber-500 transition-colors"></div>
+                    <span class="text-xs font-bold text-slate-400 tracking-widest uppercase mb-1 block">2010.01 – 2011.01</span>
+                    <h3 class="text-xl font-bold text-white mt-1">Ruder Finn — <span data-lang="en">Senior Account Executive</span><span data-lang="ja">シニアアカウントエグゼクティブ</span><span data-lang="zh">罗德公关 — 资深客户执行</span></h3>
+                    <p class="text-slate-300 font-light text-xs md:text-sm mt-2.5 bg-card/60 p-4 rounded-2xl border border-border/60">
+                        <span data-lang="en">Handled sports marketing and strategic PR for major athletic brands like Li-Ning and Lotto during their crucial early global expansion phases.</span>
+                        <span data-lang="ja">李宁（Li-Ning）やロット（Lotto）などの主要アスレチックブランドに対し、初期の重要なグローバル展开期におけるスポーツマーケティングおよび戦略的PRを担当。</span>
+                        <span data-lang="zh">负责李宁（Li-Ning）与乐途（Lotto）等主要运动品牌的体育行销与策略公关，在其关键的全球化早期扩张阶段提供专业支持。</span>
+                    </p>
+                </div>
+
+                <div class="relative group">
+                    <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-3.5 h-3.5 bg-slate-700 rounded-full border-4 border-slate-950 group-hover:bg-amber-500 transition-colors"></div>
+                    <span class="text-xs font-bold text-slate-400 tracking-widest uppercase mb-1 block">2006.12 – 2009.12</span>
+                    <h3 class="text-xl font-bold text-white mt-1">OCEANS Sports Marketing — <span data-lang="en">Sales Manager</span><span data-lang="ja">セールスマネージャー</span><span data-lang="zh">销售经理</span></h3>
+                    <p class="text-slate-300 font-light text-xs md:text-sm mt-2.5 bg-card/60 p-4 rounded-2xl border border-border/60">
+                        <span data-lang="en">Engaged in high-level sports marketing at the FIFA China representative office, leading commercial sales and partnership teams for Manchester United and FC Barcelona.</span>
+                        <span data-lang="ja">FIFA中国代表オフィスにて高度なスポーツマーケティングに従事し、マンチェスター・ユナイテッドおよびFCバルセロナの商业営业チームを率いる。</span>
+                        <span data-lang="zh">在 FIFA 中国代表处从事高阶体育行销，领导曼彻斯特联队与巴塞隆纳足球俱乐部在区域的商业赞助销售与合作伙伴团队。</span>
+                    </p>
+                </div>
+
+                <div class="relative group">
+                    <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-3.5 h-3.5 bg-slate-700 rounded-full border-4 border-slate-950 group-hover:bg-amber-500 transition-colors"></div>
+                    <span class="text-xs font-bold text-slate-400 tracking-widest uppercase mb-1 block">1996 – 2005</span>
+                    <h3 class="text-xl font-bold text-white mt-1"><span data-lang="en">Academic Background & GMAT 730</span><span data-lang="ja">学术的背景 & GMAT 730点</span><span data-lang="zh">学术背景 (GMAT 730)</span></h3>
+                    <p class="text-slate-300 font-light text-xs md:text-sm mt-2.5 bg-card/60 p-4 rounded-2xl border border-border/60">
+                        <span data-lang="en">Achieved GMAT 730 (Jan 2011), earned a Bachelor of Commerce (BCom) and Bachelor of Arts (BA) from the University of Otago (1996-2000), and completed advanced studies at Tsinghua University (2004-2005).</span>
+                        <span data-lang="ja">GMAT 730点を取得（2011年1月）。オタゴ大学で商学士（BCom）および文学士号（BA）を取得（1996〜2000年）、清华大学にて中国语・専门课程の研修を修了（2004〜2005年）。</span>
+                        <span data-lang="zh">取得 GMAT 730 分高分（2011年1月），拥有纽西兰奥塔哥大学商学士与文学士学位（1996-2000年），并曾于北京清华大学深造（2004-2005年）。</span>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 4. BROAD INFLUENCE AND ACCESS -->
+    <section id="influence" class="py-28 border-t border-border bg-slate-950">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-2xl mb-16">
+                <span class="text-gold text-xs uppercase tracking-[0.25em] font-extrabold mb-3 block">
+                    <span data-lang="en">Broad Influence and Access</span>
+                    <span data-lang="ja">ネットワークと実績</span>
+                    <span data-lang="zh">廣泛影響力與資源串聯</span>
+                </span>
+                <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight">
+                    <span data-lang="en">Global Brands & Partners</span><span data-lang="ja">主要なパートナー実績</span><span data-lang="zh">全球品牌與夥伴</span>
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-card border border-border/80 rounded-3xl p-8 card-hover">
+                    <span class="px-3 py-1 rounded-full bg-amber-500/10 text-gold text-xs uppercase tracking-wider font-bold inline-block mb-4">
+                        <span data-lang="en">Ongoing</span><span data-lang="ja">継続中</span><span data-lang="zh">持續進行</span>
+                    </span>
+                    <h3 class="text-xl font-bold text-white mb-4">
+                        <span data-lang="en">Japan Sports Agency</span><span data-lang="ja">スポーツ庁</span><span data-lang="zh">日本體育廳</span>
+                    </h3>
+                    <p class="text-slate-300 text-sm font-light mb-4">
+                        <span data-lang="en">Serving as an official Advisor, contributing to national sports development and strategy.</span>
+                        <span data-lang="ja">公式アドバイザーとして、国のスポーツ振興と戦略策定に貢献。</span>
+                        <span data-lang="zh">擔任官方顧問，為國家體育發展與戰略規劃貢獻心力。</span>
+                    </p>
+
+
+
+                    </span>
+                    <h3 class="text-xl font-bold text-white mb-2">
+                        <span data-lang="en">Cross-border brokerage</span><span data-lang="ja">クロスボーダー仲介</span><span data-lang="zh">跨国经纪桥梁</span>
+                    </h3>
+                    <ul class="text-slate-300 text-sm font-light space-y-2">
+                        <li><span data-lang="en">• Professional Sports Clubs</span><span data-lang="ja">• プロスポーツクラブ</span><span data-lang="zh">• 职业运动俱乐部</span></li>
+                        <li><span data-lang="en">• Agency M&A</span><span data-lang="ja">• 代理店 M&A</span><span data-lang="zh">• 经纪公司并购咨询</span></li>
+
+                    </p>
+
+
+
+                </div>
+
+                <div class="bg-card border border-border/80 rounded-3xl p-8 card-hover">
+                    <span class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs uppercase tracking-wider font-bold inline-block mb-4">
+                        <span data-lang="en">Pitch process</span><span data-lang="ja">ピッチ（提案）プロセス</span><span data-lang="zh">专案投标流程顾问</span>
+                    </span>
+                    <h3 class="text-xl font-bold text-white mb-4">
+                        <span data-lang="en">Teams & Federations</span><span data-lang="ja">チーム＆競技団体</span><span data-lang="zh">球队与单项运动协会</span>
+                    </h3>
+                    <ul class="text-slate-300 text-sm font-light space-y-2">
+                        <li><span data-lang="en">• International Motorsports Team</span><span data-lang="ja">• 国際モータースポーツチーム</span><span data-lang="zh">• 国际赛车车队</span></li>
+                        <li><span data-lang="en">• National Sports Association</span><span data-lang="ja">• 国内競技協会</span><span data-lang="zh">• 国内体育协会</span></li>
+                        <li><span data-lang="en">• Professional Golf Association</span><span data-lang="ja">• プロゴルフ協会</span><span data-lang="zh">• 职业高尔夫协会/span></li>
+
+                    </ul>
+                </div>
+
+                <div class="bg-card border border-border/80 rounded-3xl p-8 card-hover">
+                    <span class="px-3 py-1 rounded-full bg-pink-500/10 text-pink-400 text-xs uppercase tracking-wider font-bold inline-block mb-4">
+                        <span data-lang="en">Brands</span><span data-lang="ja">ブランド</span><span data-lang="zh">品牌夥伴</span>
+                    </span>
+                    <h3 class="text-xl font-bold text-white mb-4">
+                        <span data-lang="en">Trusted Partnerships</span><span data-lang="ja">信頼のパートナーシップ</span><span data-lang="zh">信賴合作夥伴</span>
+                    </h3>
+                    <ul class="text-slate-300 text-sm font-light space-y-2">
+                                             <li><span data-lang="en">• Global Tech Leader</span><span data-lang="ja">• グローバルITリーダー企業</span><span data-lang="zh">• 全球科技领导企业</span></li>
+                        <li><span data-lang="en">• Premium Sports Gear Brand</span><span data-lang="ja">• プレミアムスポーツ用品ブランド</span><span data-lang="zh">• 顶级运动用品品牌</span></li>
+                        <li><span data-lang="en">• Global Payment Solutions Provider</span><span data-lang="ja">• グローバル決済ソリューションプロバイダー</span><span data-lang="zh">• 全球支付解决方案供应商</span></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. DEMONSTRATED CAPABILITIES -->
+    <section id="capabilities" class="py-28 border-t border-border bg-dark">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-2xl mb-16">
+                <span class="text-gold text-xs uppercase tracking-[0.25em] font-extrabold mb-3 block">
+                    <span data-lang="en">Demonstrated Capabilities</span>
+                    <span data-lang="ja">実证された能力</span>
+                    <span data-lang="zh">证明能力</span>
+                </span>
+                <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight">
+                    <span data-lang="en">Proven Execution</span><span data-lang="ja">実行力と実绩</span><span data-lang="zh">卓越执行力</span>
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-card border border-border/80 rounded-3xl p-7 card-hover">
+                    <div class="text-gold font-black text-2xl mb-3">01</div>
+                    <h3 class="text-lg font-bold text-white mb-2">
+                        <span data-lang="en">Rapid Response</span><span data-lang="ja">迅速な対応</span><span data-lang="zh">快速响应</span>
+                    </h3>
+                    <p class="text-slate-400 text-xs font-light leading-relaxed">
+                        <span data-lang="en">Able to listen, problem solve, and deliver on brief in two hours.</span>
+                        <span data-lang="ja">ヒアリング、问题解决、そして2时间以内のブリーフ対応が可能。</span>
+                        <span data-lang="zh">能够倾听、解决问题，并在两小时内交付简报成果。</span>
+                    </p>
+                </div>
+                <div class="bg-card border border-border/80 rounded-3xl p-7 card-hover">
+                    <div class="text-pink-500 font-black text-2xl mb-3">02</div>
+                    <h3 class="text-lg font-bold text-white mb-2">
+                        <span data-lang="en">Talent Selection</span><span data-lang="ja">タレント选定</span><span data-lang="zh">人选甄选</span>
+                    </h3>
+                    <p class="text-slate-400 text-xs font-light leading-relaxed">
+                        <span data-lang="en">Ensured authentic and scandal-free talent selection.</span>
+                        <span data-lang="ja">信頼性とスキャンダルのないタレント选定を确保。</span>
+                        <span data-lang="zh">确保甄选出真实且无负面争议的人选。</span>
+                    </p>
+                </div>
+                <div class="bg-card border border-border/80 rounded-3xl p-7 card-hover">
+                    <div class="text-cyan-400 font-black text-2xl mb-3">03</div>
+                    <h3 class="text-lg font-bold text-white mb-2">
+                        <span data-lang="en">Strategic Deals</span><span data-lang="ja">戦略的ディール</span><span data-lang="zh">策略谈判</span>
+                    </h3>
+                    <p class="text-slate-400 text-xs font-light leading-relaxed">
+                        <span data-lang="en">Negotiated VIK-only deal for remuneration.</span>
+                        <span data-lang="ja">报酬に关するVIK（现物支给）限定の交渉を成立。</span>
+                        <span data-lang="zh">成功谈判仅限 VIK（现物/劳务互换）的酬劳交易。</span>
+                    </p>
+                </div>
+                <div class="bg-card border border-border/80 rounded-3xl p-7 card-hover">
+                    <div class="text-purple-400 font-black text-2xl mb-3">04</div>
+                    <h3 class="text-lg font-bold text-white mb-2">
+                        <span data-lang="en">Clear Communication</span><span data-lang="ja">明确なコミュニケーション</span><span data-lang="zh">清晰沟通</span>
+                    </h3>
+                    <p class="text-slate-400 text-xs font-light leading-relaxed">
+                        <span data-lang="en">Clear communication with all parties.</span>
+                        <span data-lang="ja">すべての关系者とクリアなコミュニケーション。</span>
+                        <span data-lang="zh">与所有各方保持清晰明确的沟通。</span>
+                    </p>
+                </div>
+                <div class="bg-card border border-border/80 rounded-3xl p-7 card-hover md:col-span-2 lg:col-span-2">
+                    <div class="text-amber-400 font-black text-2xl mb-3">05</div>
+                    <h3 class="text-lg font-bold text-white mb-2">
+                        <span data-lang="en">Connected Style</span><span data-lang="ja">人脉を活かしたスタイル</span><span data-lang="zh">人脉导向风格</span>
+                    </h3>
+                    <p class="text-slate-400 text-xs font-light leading-relaxed">
+                        <span data-lang="en">Friendly, “I know a guy” style.</span>
+                        <span data-lang="ja">亲しみやすく、「知り合いにいるよ」という人脉を活かしたスタイル。</span>
+                        <span data-lang="zh">友善且具备「我刚好认识这方专家」的人脉风格。</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. SWEET SPOT OFFERS CUSTOMIZED SOLUTIONS -->
+    <section id="offers" class="py-28 border-t border-border bg-slate-950">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <span class="text-gold text-xs uppercase tracking-[0.25em] font-extrabold mb-3 block">
+                    <span data-lang="en">Customized Solutions & Offerings</span>
+                    <span data-lang="ja">カスタマイズされたソリューションと提供内容</span>
+                    <span data-lang="zh">客制化解决方案与服务内容</span>
+                </span>
+                <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight mb-6">
+                    <span data-lang="en">Sweet Spot Offers Customized Solutions</span><span data-lang="ja">Sweet Spotが提供するカスタムソリューション</span><span data-lang="zh">Sweet Spot 提供客制化解决方案</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-card border border-border/80 rounded-3xl p-8 card-hover">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                        <span class="w-3 h-3 rounded-full bg-amber-400"></span>
+                        <span data-lang="en">Offering</span><span data-lang="ja">提供内容</span><span data-lang="zh">服务提供</span>
+                    </h3>
+                    <ul class="space-y-4 text-slate-300 text-sm font-light">
+                        <li class="flex items-start gap-3">
+                            <span class="text-gold font-bold">✓</span>
+                            <span><span data-lang="en">Experience in Japan wearables market.</span><span data-lang="ja">日本のウェアラブル市场における経験。</span><span data-lang="zh">具备日本穿戴式装置市场的经验。</span></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-gold font-bold">✓</span>
+                            <span><span data-lang="en">Connections to fitness, running, sports fashion, and health/ sports science communities.</span><span data-lang="ja">フィットネス、ランニング、スポーツファッション、健康・スポーツ科学コミュニティへのつながり。</span><span data-lang="zh">连结健身、跑步、运动时尚与健康/运动科学社群。</span></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-gold font-bold">✓</span>
+                            <span><span data-lang="en">Honest appraisal of capabilities.</span><span data-lang="ja">能力に关する率直な评価。</span><span data-lang="zh">对执行能力的诚实评估。</span></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-gold font-bold">✓</span>
+                            <span><span data-lang="en">Ability to assemble a scalable team.</span><span data-lang="ja">スケーラブルなチームを编成する能力。</span><span data-lang="zh">具备组建可扩充团队的能力。</span></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-gold font-bold">✓</span>
+                            <span><span data-lang="en">Flexible and collaborative structure.</span><span data-lang="ja">柔软で协调性のある组织构造。</span><span data-lang="zh">灵活且具协同合作性的结构。</span></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-card border border-border/80 rounded-3xl p-8 card-hover">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                        <span class="w-3 h-3 rounded-full bg-pink-500"></span>
+                        <span data-lang="en">Expected Ways of Working</span><span data-lang="ja">期待される働き方</span><span data-lang="zh">预期工作模式</span>
+                    </h3>
+                    <ul class="space-y-6 text-slate-300 text-sm font-light">
+                        <li class="flex items-start gap-4 p-4 bg-slate-900/50 rounded-2xl border border-border/50">
+                            <span class="w-8 h-8 rounded-full bg-amber-500/20 text-gold flex items-center justify-center font-bold text-xs shrink-0">01</span>
+                            <div>
+                                <strong class="text-white block mb-1"><span data-lang="en">Receive requests and briefs</span><span data-lang="ja">リクエストとブリーフの受领</span><span data-lang="zh">接收请求与简报</span></strong>
+                                <span class="text-slate-400 text-xs"><span data-lang="en">Taking in precise objectives and project briefs.</span><span data-lang="ja">正确な目的とプロジェクトブリーフの受け取り。</span><span data-lang="zh">接收明确的目标与项目简报。</span></span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4 p-4 bg-slate-900/50 rounded-2xl border border-border/50">
+                            <span class="w-8 h-8 rounded-full bg-pink-500/20 text-pink-400 flex items-center justify-center font-bold text-xs shrink-0">02</span>
+                            <div>
+                                <strong class="text-white block mb-1"><span data-lang="en">Seek out and connect Apple to ideas and opportunities</span><span data-lang="ja">アイデアや机会の创出とAppleの接続</span><span data-lang="zh">寻找并串联 Apple 于创意与商机</span></strong>
+                                <span class="text-slate-400 text-xs"><span data-lang="en">Proactively identifying and connecting innovative ideas and opportunities.</span><span data-lang="ja">革新的なアイデアや机会を积极的に见出し、接続する。</span><span data-lang="zh">积极寻找并串联创新想法与机会。</span></span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CONTACT -->
+    <section id="contact" class="py-28 border-t border-border bg-dark relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-500/10 via-transparent to-transparent pointer-events-none"></div>
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+            <span class="text-gold text-xs uppercase tracking-[0.25em] font-extrabold mb-3 block">
+                <span data-lang="en">CONTACT</span><span data-lang="ja">お问い合わせ</span><span data-lang="zh">联络我们</span>
+            </span>
+            <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight mb-6">
+                <span data-lang="en">Let's Connect</span><span data-lang="ja">お问い合わせ</span><span data-lang="zh">立即联系我们</span>
+            </h2>
+            <p class="text-slate-300 font-light mb-12 max-w-xl mx-auto text-sm md:text-base">
+                <span data-lang="en">Ready to elevate your sports business strategy in Japan? Get in touch with Sam and the Sweet Spot team today.</span>
+                <span data-lang="ja">日本におけるスポーツビジネス戦略を次のレベルへ引き上げませんか？今すぐチームにお问い合わせください。</span>
+                <span data-lang="zh">准备好在日本拓展您的体育商业策略了吗？立即与 Sam 及 Sweet Spot 团队联系。</span>
+            </p>
+
+   <div class="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm">
+                <a href="mailto:samlpearson@gmail.com" class="px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-pink-500 text-white font-bold hover:scale-105 transition-all tracking-wider shadow-xl shadow-amber-500/25">
+                    samlpearson@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/samlpearson/overlay/contact-info/" target="_blank" class="px-8 py-4 rounded-xl bg-card border border-border hover:border-gold text-white font-semibold transition-all tracking-wider hover:bg-slate-800">
+                    <span data-lang="en">LinkedIn Profile</span><span data-lang="ja">LinkedIn プロフィール</span><span data-lang="zh">LinkedIn 个人档案</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-border bg-slate-950 text-center text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>&copy; 2026 Sweet Spot (Sam L Pearson). <span data-lang="en">All Rights Reserved.</span><span data-lang="ja">All Rights Reserved.</span><span data-lang="zh">版权所有。</span></div>
+            <div class="tracking-widest uppercase text-gold font-semibold">
+                <span data-lang="en">Sports Business Strategy Advisor</span><span data-lang="ja">スポーツビジネス戦略アドバイザー</span><span data-lang="zh">运动商业策略顾问</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Language Switcher Script -->
+    <script>
+        function setLanguage(lang) {
+            const body = document.getElementById('app-body');
+            body.className = body.className.replace(/lang-(en|ja|zh)/, 'lang-' + lang);
+            
+            const btnEn = document.getElementById('btn-en');
+            const btnJa = document.getElementById('btn-ja');
+            const btnZh = document.getElementById('btn-zh');
+            
+            [btnEn, btnJa, btnZh].forEach(btn => {
+                btn.className = "px-3 py-1.5 rounded-full text-slate-300 hover:text-white transition-all";
+            });
+            
+            document.getElementById('btn-' + lang).className = "px-3 py-1.5 rounded-full bg-gold text-black font-bold transition-all shadow-sm";
+        }
+    </script>
+</body>
+</html>
